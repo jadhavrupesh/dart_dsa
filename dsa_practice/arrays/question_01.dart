@@ -37,16 +37,26 @@
 
 void main() {
   List<int> test1 = [1, 2, 3, 4, 5];
-  print("Original: \$test1");
-  print("Reversed: \${solve(test1)}"); // Expected: [5, 4, 3, 2, 1]
+  print("Original: $test1");
+  print("Reversed: ${solve(test1)}"); // Expected: [5, 4, 3, 2, 1]
 
   List<int> test2 = [10, 20];
-  print("Original: \$test2");
-  print("Reversed: \${solve(test2)}"); // Expected: [20, 10]
+  print("Original: $test2");
+  print("Reversed: ${solve(test2)}"); // Expected: [20, 10]
 }
 
 // TODO: Implement your solution here
 List<int> solve(List<int> nums) {
-  // Your code here
+  int left = 0;
+  int right = nums.length - 1;
+  while (left < right) {
+    int temp = nums[left];
+    nums[left] = nums[right];
+    nums[right] = temp;
+
+    left++;
+    right--;
+  }
+
   return nums;
 }
